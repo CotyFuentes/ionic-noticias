@@ -22,9 +22,10 @@ export class Tab1Page implements OnInit {
       .subscribe((articles) => this.articles.push(...articles));
   }
 
+  //Para que cargue más articulos en la seccion de para ti con el loadMore
   loadData() {
     this.newsService
-      .getTopHeadlinesByCategory('business', true)
+      .getTopHeadlinesByCategory('technology', true)
       .subscribe((articles) => {
         if (articles.length === this.articles.length) {
           this.infiniteScroll.disabled = true;

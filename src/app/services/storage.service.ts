@@ -17,19 +17,20 @@ export class StorageService {
     return [...this._localArticles];
   }
 
+  //Metodo para iniciar el storage que es lo que va a servir para guardar en fav
   async init() {
     const storage = await this.storage.create();
     this._storage = storage;
     this.loadFavorites();
   }
-
+//Eliminar articule del storage
   deleteArticle(article: Article) {
     this._localArticles = this._localArticles.filter(
       (localArticle) => localArticle.title !== article.title
     );
   }
 
-  //Pruebas de metodo
+  //Pruebas de 
   includeArticle(article: Article) {
     this._localArticles = [article, ...this._localArticles];
     this._storage.set('articles', this._localArticles);
